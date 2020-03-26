@@ -10,3 +10,9 @@ class Lien:
         Lien.__id += 1
         Lien.__nodes += 1
         Lien.__distance += 1
+
+    def getValue(self):
+            return self.__value
+
+    def setValue(self, value):
+            self.__value = value
