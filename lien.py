@@ -11,6 +11,10 @@ class Lien:
         Lien.__nodes += 1
         Lien.__distance += 1
 
+    def __str__(self, id):
+        print()
+
+
     def getValue(self):
             return self.__value
 
