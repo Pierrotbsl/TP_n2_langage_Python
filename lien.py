@@ -1,22 +1,31 @@
 class Lien:
     """Class Test."""
-    __id = 1
-    __nodes = 1
-    __distance = 1
 
-    def __init__(self, node1, node2):
+    def __init__(self, noeud1, noeud2, distance):
         """Initialize the value."""
-        self.__value = 1
-        Lien.__id += 1
-        Lien.__nodes += 1
-        Lien.__distance += 1
+        self.__identifiant = 1
+        self.__distance = 0
+        self.__noeud1 = 0
+        self.__noeud2 = 0
 
-    def __str__(self, id):
-        print()
+    def getIdentifiant(self):
+        return self.__identifiant
+
+    def getDistance(self):
+        return self.__distance
+
+    def getNoeud1(self):
+        return self.__noeud1
+
+    def getNoeud2(self):
+        return self.__noeud2
+
+    def setIdentifiant(self, identifiant):
+        self.__identifiant = identifiant
+
+    def __str__(self):
+        print("L'identifiant est : " + str(self.getIdentifiant()))
 
 
-    def getValue(self):
-            return self.__value
-
-    def setValue(self, value):
-            self.__value = value
+Lien1 = Lien(1, 1, 10)
+Lien1.__str__()
