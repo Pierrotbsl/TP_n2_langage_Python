@@ -13,9 +13,8 @@ class Graphe:
         self._nbrNodes += 1
         #self._dictionnaireNoeuds.append(node)
 
-
     def getNextNode(self, idNode):
-        return
+        return self.idNode
 
     def __str__(self):
         print("Liste des noeuds & liens du graphe")
