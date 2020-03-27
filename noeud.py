@@ -45,3 +45,4 @@ class Noeud:
 noeud1= Noeud()
 noeud1.__str__()
 noeud1.affichageIdentifiantLien()
+
