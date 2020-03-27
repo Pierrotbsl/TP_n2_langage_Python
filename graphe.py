@@ -4,14 +4,14 @@ class Graphe:
         self._id = id_
         self._nbrNodes = nbrNodes
         self._nodeDictionary = 0
-        self._DictionaryLink = dictionaryLink
+        self._LinkDictionary = dictionaryLink
 
     def getNbNodes(self):
         return self._nodeDictionary
 
     def addNode(self, node):
         self._nbrNodes += 1
-        #self._dictionnaireNoeuds.append(node)
+        self._nodeDictionary.append(node)
 
     def getNextNode(self, idNode):
         return self.idNode

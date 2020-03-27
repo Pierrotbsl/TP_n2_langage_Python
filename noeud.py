@@ -34,15 +34,12 @@ class Noeud:
     def ajoutIdentifiantLien(self, identifiant):
         self.__liste.append(identifiant)
 
-
-
-
     @classmethod
     def getId(cls):
         return Noeud.id
 
 
-noeud1= Noeud()
+noeud1 = Noeud()
 noeud1.__str__()
 noeud1.affichageIdentifiantLien()
 
