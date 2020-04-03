@@ -1,12 +1,12 @@
 class Lien:
     """Class Test."""
 
-    def __init__(self):
+    def __init__(self, noeud1, noeud2, distance):
         """Initialize the value."""
         self.__identifiant = 1
-        self.__distance = 0
-        self.__noeud1 = 0
-        self.__noeud2 = 0
+        self.__distance = distance
+        self.__noeud1 = noeud1
+        self.__noeud2 = noeud2
 
     def getId(self):
         return self.__identifiant
