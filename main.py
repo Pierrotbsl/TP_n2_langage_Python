@@ -1,52 +1,52 @@
-from queue import PriorityQueue
+from link import Link
 from node import Node
-from lien import Lien
 from graph import Graph
+from orientedgraph import OrientedGraph
 
 import csv
 
+def makeGraph(graphId, file):
+    with open(file, newline='') as csv_file:
+        reader = csv.reader(csv_file, delimiter='\t')
 
-"Lire le fichier"
-Graph = Graph(_id)
+        graphe1 = OrientedGraph(graphId)
 
-with open('file') as f:
-    f_csv = csv.reader(f)
-    header = next(f_csv)
+        nbrNodes = next(reader)
 
-    for _ in range(int(header[0])):
-        node = Node()
-        Graph.addNode(node)
+        for i in range(1, int(nbrNodes[0]) + 1):
+            graphe1.addNode(Node(i))
 
-    for ligne in f_csv:
-        ligne = str(ligne[0])
-        ligne = ligne.split("\t")
-        Graph.addLinkToGraph(ligne[0], ligne[1], ligne[2])
+        for row in reader:
+            graphe1.addLinkToGraph(Link(int(row[0]), int(row[1]), float(row[2])))
 
-return Graph
+        return graphe1
 
-def dijkstra(self, f, t):
-    nodeId = f.getId()
-    dist = [None] * len(self.getDictNode())
-    for i in range(len(dist)):
-        dist[i] = sys.maxsize
-        dist[i].append([self.getDictNode()[nodeId]])
-    dist[nodeId][0] = 0
-    nodeQueue = [i for i in range(len(self.getDictNode()))]
-    nodesSeen = set()
-    while len(nodeQueue):
-        dist_min = sys.maxsize
-        node_min = None
-        for n in nodeQueue:
-            if dist[n][0] < dist_min and n not in nodesSeen:
-                dist_min = dist[n][0]
-                node_min = n
-        nodeQueue.remove(node_min)
-        nodesSeen.add(nodesSeen)
-        neighbours = self.obtenirProchainsNoeuds(node_min.getId())
-        for (node, edge) in neighbours:
-            dist_tot = edge.getl1() + dist_min
-            if dist_tot < dist[node.getId()][0]:
-                dist[node.getId()][0] = dist_tot
-                dist[node.getId()][1] = list(dist[node_min][1])
-                dist[node.getId()][1].append(node)
-        return dist
+
+node1 = Node(11)
+node2 = Node(22)
+node3 = Node(33)
+node4 = Node(4444)
+
+link1 = Link(11, 22, 10)
+link2 = Link(22, 33, 11)
+link4 = Link(11, 4444, 11)
+
+graph1 = OrientedGraph(10)
+graph1.addNode(node1)
+
+graph1.addNode(node2)
+graph1.addNode(node3)
+graph1.addNode(node4)
+graph1.addLinkToGraph(link1)
+graph1.addLinkToGraph(link2)
+graph1.addLinkToGraph(link4)
+
+graph1.dijkstraAlgo(1, 8)
+
+print("Next Node")
+print(graph1.getNextNodes(22))
+print("===========================================================")
+graph = makeGraph(1, "fileGraph2.csv")
+print("Liste prochaine Noeuds : " + str(graph.getNextNodes(1)))
+
+graph.__str__()  # affichage liste

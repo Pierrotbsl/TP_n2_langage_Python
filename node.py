@@ -1,48 +1,32 @@
-from lien import Lien
-from graph import Graph
-
-
-class Node(Lien):
-    """Class Noeud"""
-    id = 1
-
+class Node:
     """Initialize the value."""
-    def __init__(self):
-        self.__NodeId = self.getId()
-        self.__list = []
 
-        Node.id += 1
+    def __init__(self, NodeId):
+        self.__nodeId = NodeId
+        self.__connectLink = []
 
     """Getters et Setters"""
+
     def getNodeId(self):
-        return self.__NodeId
+        return self.__nodeId
 
     def setNodeId(self, NodeId):
-        self.__NodeId = NodeId
+        self.__nodeId = NodeId
 
     def getList(self):
-        for element in self.__list:
+        for element in self.__connectLink:
             print(element)
-        """return self.__liste"""
-
+        return self.__connectLink
 
     """Methods"""
 
     def __str__(self):
-        print("Node Id is : "+ str(self.__NodeId))
+        print("Node Id is : ")
+        print(self.__nodeId)
 
     def displayLinkId(self):
-        print("Links List : " + str(self.getList()))
+        print("Links List : ")
+        print(self.__connectLink)
 
-    def addLinkId(self, _id):
-        self.__list.append(_id)
-
-    @classmethod
-    def getId(cls):
-        return Node.id
-
-
-Node1 = Node()
-Node1.__str__()
-Node1.displayLinkId()
-
+    def addLinkId(self, tmp_id):
+        self.__connectLink.append(tmp_id)
