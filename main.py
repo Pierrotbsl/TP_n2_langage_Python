@@ -5,6 +5,7 @@ from orientedgraph import OrientedGraph
 
 import csv
 
+
 def makeGraph(graphId, file):
     with open(file, newline='') as csv_file:
         reader = csv.reader(csv_file, delimiter='\t')
@@ -22,31 +23,26 @@ def makeGraph(graphId, file):
         return graphe1
 
 
-node1 = Node(11)
-node2 = Node(22)
-node3 = Node(33)
-node4 = Node(4444)
+node1 = Node(1)
+node2 = Node(2)
+node3 = Node(3)
 
-link1 = Link(11, 22, 10)
-link2 = Link(22, 33, 11)
-link4 = Link(11, 4444, 11)
+link1 = Link(1, 2, 5)
+link2 = Link(2, 2, 6)
 
-graph1 = OrientedGraph(10)
-graph1.addNode(node1)
+graph = OrientedGraph(5)
 
-graph1.addNode(node2)
-graph1.addNode(node3)
-graph1.addNode(node4)
-graph1.addLinkToGraph(link1)
-graph1.addLinkToGraph(link2)
-graph1.addLinkToGraph(link4)
+graph.addNode(node1)
+graph.addNode(node2)
+graph.addNode(node3)
+graph.addLinkToGraph(link1)
+graph.addLinkToGraph(link2)
 
-graph1.dijkstraAlgo(1, 8)
+#graph.dijkstra(1, 5) => commenté car erreur KeyError : 1 non résolue
 
-print("Next Node")
-print(graph1.getNextNodes(22))
-print("===========================================================")
+print("get Next Node : ")
+print(graph.getNextNodes(2))
 graph = makeGraph(1, "fileGraph2.csv")
-print("Liste prochaine Noeuds : " + str(graph.getNextNodes(1)))
-
-graph.__str__()  # affichage liste
+print("List of Nodes : ")
+print(graph.getNextNodes(1))
+graph.__str__()
